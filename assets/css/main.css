@@ -1,0 +1,166 @@
+html {
+	position: relative;
+}
+
+body {
+	margin-bottom: 60px;
+	width: 100%;
+  	min-height: 100vh;
+  	background: url(../images/main_bg.jpg);
+  	background-position: 50% 30%;
+	color: #c78030;
+}
+em, .nav-link {
+	color: white;
+}
+
+.site-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background-color: #373737;
+}
+
+.site-header {
+	background-color: rgb(80, 160, 120);
+	padding: 10px 0;
+	background-color: #373737;
+	color: white;
+}
+
+.site-nav {
+	background-color: #c78030;
+	padding: 5px 0;
+}
+
+.site-content {
+	padding: 10px 0;
+}
+
+.header-nav {
+	display: flex;
+	justify-content: space-between;
+}
+.vrapper {
+	width: 100%;
+	display: flex;
+	align-items: start;
+}
+
+.list-group-item {
+	background: none;
+	border: 2mm ridge #373737;
+}
+
+.btn-change {
+	background-color: #c78030;
+	color: black;
+}
+
+.btn-cancel {
+	background-color: #373737;
+	color: white;
+}
+
+.ban {
+	text-align: center;
+	font-size: 48px;
+	color: rgb(150, 0, 0);
+}
+
+.form-input, .form-input:hover {
+  color: #c78030;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(199, 126, 48, 0.6);
+  font-size: 20px;
+  text-align: center;
+}
+
+.flack {
+	width: 30px;
+	height: 25px;
+}
+
+.col-auto {
+	min-width: 150px;
+}
+summary, font {
+	text-transform: uppercase;
+}
+.profile{
+	width: 24%;
+	text-align: center;
+}
+.message {
+	width: 75%;
+}
+.user {
+	width: 50px;
+	border-radius: 50%;
+
+}
+.bg-color {
+	background-color: rgba(128, 128, 128, 0.5);
+	color: white;
+}
+.bg-color em {
+	color: #c78030;
+}
+.wrapper_scheme {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.terminal {
+	display: none;
+	background-color: #c78030;
+	padding: 0 20px;
+	color: white;
+	width: 50%;
+	position: fixed;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+
+}
+
+.terminal textarea {
+	background-color: rgb(25, 25, 25);
+	color: white;
+	position: relative;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%, 0);
+	width: 100%;
+}
+
+.visible {
+	display: block;
+}
+
+.default {
+	display: none;
+}
+
+.line {
+	display: inline !important;
+}
+
+.opacity {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(195, 175, 152, 0.5);
+}
+.w-100 {
+	width: 100%;
+}
+
+.main > h1 {
+	color: rgba(128, 128, 128);
+}
+
