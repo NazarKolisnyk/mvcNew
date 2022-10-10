@@ -22,7 +22,7 @@
                 </div>
 
                 <input class="btn btn-change" value="<?= __('Save') ?>" type="submit">
-                <a class="btn btn-cancel" href="<?= BASE_URL ?>"><?= __('Cancel') ?></a>
+                <a class="btn btn-cancel" href="<?= BASE_URL ?>pages"><?= __('Cancel') ?></a>
             </form>
             <hr>
             <?php if ($this->error) : ?>

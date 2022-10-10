@@ -22,8 +22,8 @@ class Statistics
         return is_bool($result) ? $result : false;
     }
 
-    public function editStatement($connect, int $status) : bool {
-        $queryString = sprintf("UPDATE statements SET status = '%s' WHERE id = %s", $status);
+    public function editStatement($connect, int $status, $id) : bool {
+        $queryString = sprintf("UPDATE statements SET status = '%s' WHERE id = %s", $status, $id);
         $result = mysqli_query($connect, $queryString);
         return $result ?? [];
     }

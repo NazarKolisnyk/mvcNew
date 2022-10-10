@@ -11,6 +11,9 @@
                             <?php if (restrict('edit-page')) : ?>
                                 <a class="btn btn-change" href="<?= BASE_URL ?>pages/<?= $page['id'] ?>/edit_page"><?= __('Edit') ?></a>
                             <?php endif; ?>
+                            <?php if (restrict('delete-page')) : ?>
+                                <button class="btn btn-cancel" type="submit" name="page" value="<?= $page['id'] ?>" formaction="<?= BASE_URL ?>pages/delete_page"><?= __('Delete') ?></button>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul><br>

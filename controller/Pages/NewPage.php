@@ -10,28 +10,24 @@ class NewPage
         $this->pages = $statistics->getConnect($connect, 'pages');
         $this->roleNumber = $currentUserInfo['role'];
         $this->userName = $currentUserInfo['username'];
-        
-        if (!restrict('pages')) {
-            header('Location: ' . HOST . BASE_URL . 'errors/e404');
-            exit;
-        }
-    }
-    public function toHtml(): void
-    {
-
-        include('view/base/v_header.php');
-        include('view/base/v_content.php');
-        foreach ($this->pages as $page) {
-            if ($page['url'] == $_GET['mvcsystemurl']) {
-                $include = true;
+        foreach ($this->pages as $this->page) {
+            if ($this->page['url'] == $_GET['mvcsystemurl']) {
+                $this->include = true;
                 break;
             }
         }
-        if ($include == true) {
-                include('view/pages/v_new_page.php');
-            } else {
-                include_once('view/errors/v_404.php');
-            }
+        
+        if (!restrict('pages') or !$this->include) {
+            header('Location: ' . HOST . BASE_URL . 'errors/e404');
+            exit;
+        }
+
+    }
+    public function toHtml(): void
+    {
+        include('view/base/v_header.php');
+        include('view/base/v_content.php');
+        include('view/pages/v_new_page.php');
         include('view/base/v_footer.php');
     }
 }

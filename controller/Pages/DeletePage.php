@@ -1,35 +1,37 @@
 <?php
 
-class DeleteMessage {
+class DeletePage {
 
     public function __construct($routerRes, $currentUserInfo)
     {
-        $messages = new Messages();
+        $pages = new DbPage();
         $statistics = new Statistics();
         $connect = Connect::getConnect();
-        $this->title = __('Message');
+        $this->title = __('Page');
         
-        $this->messages = $statistics->getConnect($connect, "messages");
+        $this->pages = $statistics->getConnect($connect, "pages");
         $this->roleNumber = $currentUserInfo['role'];
         $this->routerRes = $routerRes;
         $this->error;
-        
-        if (!restrict('delete-message')) {
+        $success = 0;
+
+        if (!restrict('delete-page')) {
             header('Location: ' . HOST . BASE_URL . 'errors/e404');
             exit;
         }
-        if ($_POST['delete_message']) {
-            foreach ($this->messages as $message) {
-                if ($_POST['edit_message'] == $message) {
+        if ($_POST['delete_page']) {
+            foreach ($this->pages as $page) {
+                if ($_POST['delete_page'] == $page['id']) {
                     $success = 1;
                 }
             }
             if ($success == 0) {
                 return $this->error = "This message cannot be changed";
             }
-            $result = $messages->deleteMessage($connect, ($_POST['delete_message']));
-            $_SESSION['is_message_deleted'] = $result;
-            header('Location: ' . HOST . BASE_URL);
+            $success = 0;
+            $result = $pages->deletePage($connect, $_POST['delete_page']);
+            $_SESSION['is_page_deleted'] = $result;
+            header('Location: ' . HOST . BASE_URL . 'pages');
             exit;
         }
     }
@@ -38,7 +40,7 @@ class DeleteMessage {
     {
         include('view/base/v_header.php');
         include('view/base/v_content.php');
-        include('view/messages/v_delete.php');
+        include('view/pages/v_delete_page.php');
         include('view/base/v_footer.php');
     }
 }

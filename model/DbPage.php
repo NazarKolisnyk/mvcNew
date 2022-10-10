@@ -15,4 +15,10 @@ class DbPage
         $result = mysqli_query($connect, $queryString);
         return $result ?? [];
     }
+
+    public function deletePage($connect, int $id) : bool {
+        $queryString = sprintf("DELETE FROM pages WHERE id = %s", $id);
+        $result = mysqli_query($connect, $queryString);
+        return $result ?? [];
+    }
 }

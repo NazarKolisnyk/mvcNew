@@ -75,11 +75,6 @@ return (function(){
             'regex' => "/^statistics\/?$/",
             'controller' => 'Statistics/Scheme'
         ],
-        
-        [
-            'regex' => "/^profile\/edit\/?$/",
-            'controller' => 'Profile/EditProfile'
-        ],
         [
             'regex' => "/^create_role\/?$/",
             'controller' => 'Admin/CreateRole'
@@ -97,6 +92,10 @@ return (function(){
             'controller' => 'Pages/Pages'
         ],
         [
+            'regex' => "/^pages\/delete_page\/?$/",
+            'controller' => 'Pages/DeletePage'
+        ],
+        [
             'regex' => "/^pages\/add_page\/?$/",
             'controller' => 'Pages/AddPage'
         ],
@@ -108,7 +107,13 @@ return (function(){
                 'id' => 1
             ]
         ],
-
+        [
+            'regex' => "/^cache\/($text)\/?$/",
+            'controller' => 'Cache/Cache',
+            'params' => [
+                'url' => 1
+            ]
+        ],
         [
             'regex' => "/^($text)\/?$/",
             'controller' => 'Pages/NewPage',
@@ -116,5 +121,6 @@ return (function(){
                 'url' => 1
             ]
         ],
+
     ];
 })();

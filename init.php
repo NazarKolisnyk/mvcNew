@@ -14,7 +14,7 @@ const ROLES = [
     4 => ['add', 'access']
 ];
 
-
+include_once('controller/Cache/Cache.php');
 include_once('core/bootstrap.php');
 include_once('core/arr.php');
 include_once('core/DB.php');

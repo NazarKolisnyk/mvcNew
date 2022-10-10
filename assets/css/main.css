@@ -43,11 +43,6 @@ em, .nav-link {
 	display: flex;
 	justify-content: space-between;
 }
-.vrapper {
-	width: 100%;
-	display: flex;
-	align-items: start;
-}
 
 .list-group-item {
 	background: none;
@@ -94,9 +89,6 @@ summary, font {
 	width: 24%;
 	text-align: center;
 }
-.message {
-	width: 75%;
-}
 .user {
 	width: 50px;
 	border-radius: 50%;
@@ -141,7 +133,7 @@ summary, font {
 }
 
 .default {
-	display: none;
+	display: none !important;
 }
 
 .line {
@@ -163,4 +155,29 @@ summary, font {
 .main > h1 {
 	color: rgba(128, 128, 128);
 }
+/* Таблиця */
 
+/* .liveExample ul {
+	width: 100%;
+} */
+
+.js:nth-child(odd) {
+	background-color: rgba(128, 128, 128, 0.5);
+}
+
+.ko-grid-pageLinks {
+	display: flex;
+	justify-content: center;
+}
+
+.ko-grid-pageLinks a {
+	padding: 0.5em;
+	margin: 5px;
+	background-color: black;
+	color: white;
+}
+
+.ko-grid-pageLinks a.selected {
+	background-color:#c78030;
+	color: black;
+}

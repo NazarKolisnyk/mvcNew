@@ -5,6 +5,12 @@ class E404 {
     {   
         $this->title = __('Error 404');
         $this->roleNumber = $currentUserInfo['role'];
+        if (is_readable('view/cache/error.txt')) {
+            header('Location: ' . HOST . BASE_URL . 'cache/error');
+            exit;
+        }
+        $homepage = file_get_contents('view/errors/v_404.php');
+        file_put_contents('view/cache/error.txt', $homepage);
     }
 
     public function toHtml(): void {

@@ -33,25 +33,26 @@
             <main class="main">
                 <h1><?= $this->title ?></h1>
                 <hr>
-                <form action="<?= BASE_URL ?>profile/edit" method="POST">
-                    <ul class="list-group">
-                        <?php foreach ($this->users as $user) :
-                            if ($user['login'] == $this->userName) : ?>
-                                <li class="list-group-item">
-                                    <label><strong><?= __('User email') ?>:</strong></label><em> <?= $user['email'] ?></em><br>
-                                    <label><strong><?= __('Title') ?>:</strong></label><em> <?= $user['login'] ?></em><br>
-                                    <label><strong><?= __('Password') ?>:</strong></label><em> *********</em><br>
-                                    <label><strong><?= __('Role') ?>:</strong></label>
-                                    <?php foreach ($this->roles as $role) :
-                                        if ($user['role'] == $role['id']) {
-                                            print_r('<em>' . $role['role'] . '</em>');
-                                        }
-                                    endforeach; ?>
-                                </li>
-                        <?php endif;
-                        endforeach; ?>
-                    </ul>
-                    <details <? if ($this->roleNumber == 1) : ?>class="default" <? endif; ?>>
+                <ul class="list-group">
+                    <?php foreach ($this->users as $user) :
+                        if ($user['login'] == $this->userName) : ?>
+                            <li class="list-group-item">
+                                <label><strong><?= __('User email') ?>:</strong></label><em> <?= $user['email'] ?></em><br>
+                                <label><strong><?= __('Title') ?>:</strong></label><em> <?= $user['login'] ?></em><br>
+                                <label><strong><?= __('Password') ?>:</strong></label><em> *********</em><br>
+                                <label><strong><?= __('Role') ?>:</strong></label>
+                                <?php foreach ($this->roles as $role) :
+                                    if ($user['role'] == $role['id']) {
+                                        print_r('<em>' . $role['role'] . '</em>');
+                                    }
+                                endforeach; ?>
+                            </li>
+                    <?php endif;
+                    endforeach; ?>
+                </ul>
+                <? if ($this->roleNumber !=1) : ?>
+                <form method="POST">
+                    <details>
                         <summary>Do you want a role?</summary>
                         <div class="row m-3 align-items-start">
                             <div class="col-auto">
@@ -79,4 +80,5 @@
                         <button class="btn btn-change" name="type" value="true" type="submit"><?= __('Edit role') ?></button>
                     </details>
                 </form>
+                <? endif; ?>
             <?php endif; ?>
