@@ -6,7 +6,7 @@
 <div class="site-content">
     <div class="container">
         <main class="main">
-            <h1><?= $title ?></h1>
+            <h1><?= $this->title ?></h1>
             <hr>
 
             <form class="d-inline" method="POST">
@@ -15,7 +15,7 @@
                         <label class="col-form-label" for="username"><?= __('Username') ?></label>
                     </div>
                     <div class="col-auto">
-                        <input class="form-control" id="username" name="username" value="<?= $fields['username'] ?>">
+                        <input class="form-control" id="username" name="username">
                     </div>
                 </div>
                 <div class="row m-3 align-items-start">
@@ -23,7 +23,7 @@
                         <label class="col-form-label" for="password"><?= __('Password') ?></label>
                     </div>
                     <div class="col-auto">
-                        <input class="form-control" type="password" name="password" id="password" value="<?= $fields['password'] ?>">
+                        <input class="form-control" type="password" name="password" id="password">
                     </div>
                 </div>
                 <div class="row m-3 align-items-center">
@@ -39,9 +39,9 @@
             </form>
             <hr>
             <div>
-                <? foreach ($this->loggedUserErrors as $error) : ?>
+                <?php foreach ($this->loggedUserErrors as $error) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?= $error ?>
                     </div>
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </div>

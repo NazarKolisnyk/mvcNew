@@ -50,7 +50,7 @@
                     <?php endif;
                     endforeach; ?>
                 </ul>
-                <? if ($this->roleNumber !=1) : ?>
+    <?php if ($this->roleNumber !=1) : ?>
                 <form method="POST">
                     <details>
                         <summary>Do you want a role?</summary>
@@ -72,7 +72,7 @@
                                     <?php foreach ($this->roles as $role) :
                                         if ($role['id'] >= 2 and $role['id'] != $this->roleNumber) : ?>
                                             <option value="<?= $role['id'] ?>"><?= $role['role'] ?></option>
-                                    <? endif;
+                                        <?php endif;
                                     endforeach; ?>
                                 </select>
                             </div>
@@ -80,5 +80,5 @@
                         <button class="btn btn-change" name="type" value="true" type="submit"><?= __('Edit role') ?></button>
                     </details>
                 </form>
-                <? endif; ?>
+    <?php endif; ?>
             <?php endif; ?>

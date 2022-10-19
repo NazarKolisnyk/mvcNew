@@ -15,14 +15,14 @@ let login = document.querySelector('#statistic').getAttribute("data-login").spli
     option;
 
 time.addEventListener('change', function (e) {
-    if (e.target.value == "months") {
+    let line;
+    if (e.target.value === "months") {
         line = years;
         timeLine.classList.add('line');
-    }  else if (e.target.value == "days") {
+    } else if (e.target.value === "days") {
         line = months;
         timeLine.classList.add('line');
-
-    }  else {
+    } else {
         timeLine.classList.remove('line');
     }
         
@@ -55,8 +55,8 @@ function getRandomInt(max) {
 }
 
 function setDate() {
-    (time.value == "years") ? arr = years: (time.value == "months") ? arr = months : (time.value == "days") ? arr = new Date().daysInMonth() : arr = [];
-    (params.value == "login") ? date = login: (params.value == "password") ? date = password : (params.value == "message") ? date = message : date = [];
+    (time.value === "years") ? arr = years: (time.value === "months") ? arr = months : (time.value === "days") ? arr = new Date().daysInMonth() : arr = [];
+    (params.value === "login") ? date = login: (params.value === "password") ? date = password : (params.value === "message") ? date = message : date = [];
 
     for (let i = 0; i < arr.length; i++) {
         number[i] = 0;
@@ -65,14 +65,14 @@ function setDate() {
     }
 
     date.forEach(function (item) {
-        if (arr == years) {
+        if (arr === years) {
             number[new Date(item).getFullYear() - 2021] += 1
-        } else if (arr == months) {
-            (new Date(item).getFullYear() - 2021 == timeLine.value) ? number[new Date(item).getMonth()] += 1 : number;
-        } else if (arr == days) {
+        } else if (arr === months) {
+            (new Date(item).getFullYear() - 2021 === timeLine.value) ? number[new Date(item).getMonth()] += 1 : number;
+        } else if (arr === days) {
             console.log(new Date(item).getMonth());
             console.log(new Date(timeLine.value).getMonth());
-            (new Date(item).getFullYear() == new Date().getFullYear() && new Date(item).getMonth() - 1 == new Date(timeLine.value).getMonth()) ?
+            (new Date(item).getFullYear() === new Date().getFullYear() && new Date(item).getMonth() - 1 === new Date(timeLine.value).getMonth()) ?
             number[new Date(item).getDate() - 1] += 1 : number;
         };
     });

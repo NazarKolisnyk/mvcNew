@@ -4,7 +4,7 @@ session_start();
 
 include_once('init.php');
 
-$left = '';
+$currentUserInfo = (array) json_decode($_COOKIE['user_info']);
 
 $uri = $_SERVER['REQUEST_URI'];
 $badUrl = BASE_URL . 'index.php';
@@ -22,11 +22,12 @@ if(strpos($uri, $badUrl) === 0){
         $url = substr($url, 0, $urlLen - 1);
     }
 }
-$path = "controller/$cname.php";
+$path = "Controller/$cname.php";
 
 include_once($path);
 
 $arr = explode("/", $cname);
 $controllerName = $arr[count($arr)-1];
+
 $controller = new $controllerName($routerRes, $currentUserInfo);
 $controller->toHtml();

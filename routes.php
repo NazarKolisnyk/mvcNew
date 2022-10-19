@@ -120,7 +120,6 @@ return (function(){
             'params' => [
                 'url' => 1
             ]
-        ],
-
+        ]
     ];
 })();
